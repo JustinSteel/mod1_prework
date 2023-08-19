@@ -101,11 +101,11 @@ RSpec.describe 'Arrays' do
   it 'test 9' do
     teams = ["Rockies", "Avalanche", "Nuggets", "Broncos", "Rapids"]
     # Call a method on the teams variable to get the second, third, and fourth teams
-    some_teams = teams.
+    some_teams = teams[1..3]
     expect(some_teams).to eq(["Avalanche", "Nuggets", "Broncos"])
 
     # Now use a different method on the teams variable to get the first and second teams
-     some_teams = teams
+     some_teams = teams.values_at(0,1)
      expect(some_teams).to eq(["Rockies", "Avalanche"])
   end
 
@@ -171,7 +171,7 @@ RSpec.describe 'Arrays' do
     dice = [1,2,3,4,5,6]
     # Call a method on the dice variable to get a random element out
     # of the array
-    roll = dice.shuffle
+    roll = dice.sample
     expect(roll <= 6).to eq(true)
     expect(roll >= 1).to eq(true)
     # Note, this assertion assumes the Ruby Version is 2.4 or higher.
